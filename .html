@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Verification</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        input { padding: 10px; margin: 10px; width: 250px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        #error { color: red; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Check Your Result</h2>
+    <input type="text" id="enrollment" placeholder="Enter Enrollment Number" required><br>
+    <input type="date" id="dob" required><br>
+    <button onclick="verifyUser()">View Result</button>
+    <p id="error"></p>
+
+    <script>
+        function verifyUser() {
+            const correctEnrollment = "E24111033800020"; // Valid Enrollment Number
+            const correctDOB = "2007-12-04"; // Valid Date of Birth (YYYY-MM-DD)
+
+            let enteredEnrollment = document.getElementById("enrollment").value.trim();
+            let enteredDOB = document.getElementById("dob").value;
+
+            if (enteredEnrollment === correctEnrollment && enteredDOB === correctDOB) {
+                window.location.href = "POLY_RESULT.L.pdf"; // Redirect to PDF
+            } else {
+                document.getElementById("error").innerText = "Invalid details! Please try again.";
+            }
+        }
+    </script>
+</body>
+</html>
